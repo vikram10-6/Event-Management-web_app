@@ -252,7 +252,8 @@ function EventForm({ userId, type }: EventFormProps) {
                                 Free Ticket
                               </label>
 
-                              <Checkbox
+                              <Checkbox 
+                              onCheckedChange={field.onChange} checked={field.value}
                                 id="isFree"
                                 className="mr-2 w-5 h-5 border-2 border-primary-500"
                               />
