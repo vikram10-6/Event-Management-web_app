@@ -28,7 +28,7 @@ function Card({event,hasOrderLink,hidePrice}:CardProps) {
         </Link>
         {/* IS EVENT CREATOR  */}
         {isEventCreator && !hidePrice &&(
-            <div className="absolute right-2 top-2 flex flex-col rounded-xl gap-4 bg-whote p-3 shadow-sm transition-all">
+            <div className="absolute right-2 top-2 flex flex-col rounded-xl gap-4 bg-white p-3 shadow-sm transition-all">
                 <Link 
                 href={`/events/${event._id}/update`}
                 >
@@ -38,7 +38,7 @@ function Card({event,hasOrderLink,hidePrice}:CardProps) {
             </div>
         )}
 
-        <Link href={`/events/${event._id}`}
+        <div 
         className='flex min-h-[230px] flex-col gap-3 p-5 md:gap-4'
         >
           {!hidePrice &&  <div className="flex gap-2">
@@ -53,9 +53,12 @@ function Card({event,hasOrderLink,hidePrice}:CardProps) {
             <p className="p-medium-16 p-mediuim-18 text-grey-500">
                 {formatDateTime(event.startDateTime).dateTime}
             </p>
+            <Link href={`/events/${event._id}`}>
+            
             <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black">
                 {event.title}
             </p>
+            </Link>
             <div className="flex-between w-full ">
                 <p className="p-medium-14 md:p-medium-16 text-grey-600">{event.organizer.firstName} {event.organizer.lastName}
             </p>
@@ -71,7 +74,7 @@ function Card({event,hasOrderLink,hidePrice}:CardProps) {
             )}
 
             </div>
-        </Link>
+        </div>
     </div>
   )
 }
